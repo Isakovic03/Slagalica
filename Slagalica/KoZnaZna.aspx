@@ -88,6 +88,18 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: background 0.3s, transform 0.2s;
 }
+.score-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #8B4513;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
 .skip-button:hover {
     background: linear-gradient(145deg, #8B0000, #B22222);
@@ -108,6 +120,10 @@
 <body>
     <form id="form1" runat="server">
         <h1>KO ZNA ZNA</h1>
+        <!-- Ukupan broj poena - pozicioniran sa strane -->
+<div class="score-container">
+    <asp:Label ID="lblPoeni" runat="server" Text="Poeni: 0"></asp:Label>
+</div>
         <div class="quiz-container">
             <asp:Button ID="btnSkip" runat="server" Text="Ne znam" CssClass="skip-button" OnClick="SkipQuestion" />
 
@@ -116,6 +132,7 @@
             <div class="question">
                 <asp:Label ID="pitanje" runat="server" Text="Ovo je primer label-a"></asp:Label>
             </div>
+           
 
             <!-- Opcije sa ASP.NET dugmadi -->
             <div class="options">
