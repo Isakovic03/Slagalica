@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="slagalica.aspx.cs" Inherits="Slagalica.slagalica" %>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -58,7 +60,7 @@
             box-shadow: 12px 12px 30px rgba(0, 0, 0, 0.25), -12px -12px 30px rgba(255, 255, 255, 0.8);
         }
 
-        button {
+        .button-style {
             background: linear-gradient(145deg, #8B4513, #A0522D);
             color: white;
             border: none;
@@ -71,7 +73,7 @@
             transition: background-color 0.3s, box-shadow 0.3s;
         }
 
-        button:hover {
+        .button-style:hover {
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
@@ -81,24 +83,6 @@
             font-weight: bold;
             color: #5A5A5A;
         }
-        .button-link {
-    display: inline-block;
-    background: linear-gradient(145deg, #8B4513, #A0522D);
-    color: white;
-    text-decoration: none;
-    border-radius: 15px;
-    padding: 15px 40px;
-    font-size: 1.4rem;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, box-shadow 0.3s;
-    text-align: center;
-}
-
-.button-link:hover {
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
 
         @media (max-width: 768px) {
             h1 {
@@ -111,7 +95,7 @@
                 padding: 20px;
             }
 
-            button {
+            .button-style {
                 font-size: 1.2rem;
                 padding: 10px 25px;
             }
@@ -120,32 +104,33 @@
 </head>
 <body>
     <h1>SLAGALICA</h1>
-   <div class="container">
-    <div class="button-wrapper">
-        <a href="Slagalica.aspx" class="button-link">Slagalica</a>
-        <span class="score">Poeni: 0</span>
-    </div>
-    <div class="button-wrapper">
-        <a href="MojBroj.aspx" class="button-link">Moj broj</a>
-        <span class="score">Poeni: 0</span>
-    </div>
-    <div class="button-wrapper">
-        <a href="Spojnice.aspx" class="button-link">Spojnice</a>
-        <span class="score">Poeni: 0</span>
-    </div>
-    <div class="button-wrapper">
-        <a href="Skocko.aspx" class="button-link">Skocko</a>
-        <span class="score">Poeni: 0</span>
-    </div>
-    <div class="button-wrapper">
-        <a href="KoZnaZna.aspx" class="button-link">Ko zna zna</a>
-        <span class="score">Poeni: 0</span>
-    </div>
-    <div class="button-wrapper">
-        <a href="Asocijacije.aspx" class="button-link">Asocijacije</a>
-        <span class="score">Poeni: 0</span>
-    </div>
-</div>
-
+    <form runat="server">
+        <div class="container">
+            <div class="button-wrapper">
+                <asp:Button ID="btnSlagalica" runat="server" CssClass="button-style" Text="Slagalica"/>
+                <asp:Label ID="lblSlagalica" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
+            </div>
+            <div class="button-wrapper">
+                <asp:Button ID="btnMojBroj" runat="server" CssClass="button-style" Text="Moj broj"/>
+                <asp:Label ID="lblMojBroj" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
+            </div>
+            <div class="button-wrapper">
+                <asp:Button ID="btnSpojnice" runat="server" CssClass="button-style" Text="Spojnice"/>
+                <asp:Label ID="lblSpojnice" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
+            </div>
+            <div class="button-wrapper">
+                <asp:Button ID="btnSkocko" runat="server" CssClass="button-style" Text="Skocko"/>
+                <asp:Label ID="lblSkocko" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
+            </div>
+            <div class="button-wrapper">
+                <asp:Button ID="btnKoZnaZna"  runat="server" CssClass="button-style" Text="Ko zna zna" OnClick="btnkzz"/>
+                <asp:Label ID="lblKoZnaZna" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
+            </div>
+            <div class="button-wrapper">
+                <asp:Button ID="btnAsocijacije" runat="server" CssClass="button-style" Text="Asocijacije"/>
+                <asp:Label ID="lblAsocijacije" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
+            </div>
+        </div>
+    </form>
 </body>
 </html>

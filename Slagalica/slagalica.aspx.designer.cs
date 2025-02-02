@@ -15,120 +15,111 @@ namespace Slagalica
     {
 
         /// <summary>
-        /// form1 control.
+        /// btnSlagalica control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.Button btnSlagalica;
 
         /// <summary>
-        /// btn1 control.
+        /// lblSlagalica control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn1;
+        protected global::System.Web.UI.WebControls.Label lblSlagalica;
 
         /// <summary>
-        /// lblScore1 control.
+        /// btnMojBroj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScore1;
+        protected global::System.Web.UI.WebControls.Button btnMojBroj;
 
         /// <summary>
-        /// btn2 control.
+        /// lblMojBroj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn2;
+        protected global::System.Web.UI.WebControls.Label lblMojBroj;
 
         /// <summary>
-        /// lblScore2 control.
+        /// btnSpojnice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScore2;
+        protected global::System.Web.UI.WebControls.Button btnSpojnice;
 
         /// <summary>
-        /// btn3 control.
+        /// lblSpojnice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn3;
+        protected global::System.Web.UI.WebControls.Label lblSpojnice;
 
         /// <summary>
-        /// lblScore3 control.
+        /// btnSkocko control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScore3;
+        protected global::System.Web.UI.WebControls.Button btnSkocko;
 
         /// <summary>
-        /// btn4 control.
+        /// lblSkocko control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn4;
+        protected global::System.Web.UI.WebControls.Label lblSkocko;
 
         /// <summary>
-        /// lblScore4 control.
+        /// btnKoZnaZna control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScore4;
+        protected global::System.Web.UI.WebControls.Button btnKoZnaZna;
 
         /// <summary>
-        /// btn5 control.
+        /// lblKoZnaZna control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn5;
+        protected global::System.Web.UI.WebControls.Label lblKoZnaZna;
 
         /// <summary>
-        /// lblScore5 control.
+        /// btnAsocijacije control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScore5;
+        protected global::System.Web.UI.WebControls.Button btnAsocijacije;
 
         /// <summary>
-        /// btn6 control.
+        /// lblAsocijacije control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn6;
-
-        /// <summary>
-        /// lblScore6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScore6;
+        protected global::System.Web.UI.WebControls.Label lblAsocijacije;
     }
 }

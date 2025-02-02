@@ -9,12 +9,16 @@ namespace Slagalica
 {
     public partial class KoZnaZna : Page
     {
-        int i = 0;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
                 UcitajNasumicnoPitanje();
+                ViewState["i"] = 0;
+                ViewState["brpt"] = 0;
+                Session["ubp"] = 0;
             }
         }
         private static void Shuffle<T>(List<T> lista)
@@ -73,22 +77,50 @@ namespace Slagalica
             Button clickedButton = (Button)sender;
             string izabraniOdgovor = clickedButton.Text;
             string tacanOdgovor = ViewState["TacanOdgovor"].ToString();
-            if (izabraniOdgovor == tacanOdgovor)
+            int i = (int)ViewState["i"];
+            int g = (int)ViewState["brpt"];
+            if (g < 10)
             {
-                
-                i = i + 10;
-                lblPoeni.Text = "Poeni: " + i.ToString();
-            }
-            else
-            {
-                i = i - 4;
-                lblPoeni.Text = "Poeni: " + i.ToString();
-            }
+                if (izabraniOdgovor == tacanOdgovor)
+                {
 
+                    i = i + 10;
+                    ViewState["i"] = i;
+                    lblPoeni.Text = "Poeni: " + ViewState["i"].ToString();
+                }
+                else
+                {
+                    i = i - 4;
+                    ViewState["i"] = i;
+                    lblPoeni.Text = "Poeni: " + ViewState["i"].ToString();
+                }
+                g++;
+                ViewState["brpt"] = g;
+            }
+            if (g >= 10)
+            {
+                kzz.Visible = false;
+                kzz2.Visible = false;
+                nextgame.Visible = true;
+                lblUkupniPoeni.Text = "Ukupan broj poena:" + ViewState["i"].ToString();
+                Session["ubp"]=ViewState["i"].ToString();
+            }
             UcitajNasumicnoPitanje(); // Učitava sledeće pitanje
         }
         protected void SkipQuestion(object sender, EventArgs e)
         {
+            
+            int g = (int)ViewState["brpt"];
+            g++;
+            ViewState["brpt"] = g;
+            if (g >= 10)
+            {
+                kzz.Visible = false;
+                kzz2.Visible = false;
+                nextgame.Visible = true;
+                lblUkupniPoeni.Text = "Ukupan broj poena:" + ViewState["i"].ToString();
+                Session["ubp"] = ViewState["i"].ToString();
+            }
             UcitajNasumicnoPitanje();
         }
     }
