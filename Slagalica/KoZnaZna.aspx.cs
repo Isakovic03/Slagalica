@@ -47,25 +47,24 @@ namespace Slagalica
                     {
                         pitanje.Text = reader["Pitanje"].ToString();
 
-                        // Kreiranje liste odgovora
                         List<string> odgovori = new List<string>
                 {
-                    reader["Tnodgovor"].ToString(), // Tačan odgovor
+                    reader["Tnodgovor"].ToString(), 
                     reader["Nnodgovor1"].ToString(),
                     reader["Nnodgovor2"].ToString(),
                     reader["Nnodgovor3"].ToString()
                 };
 
-                        // Mešanje odgovora
+
                         Shuffle(odgovori);
 
-                        // Postavljanje odgovora na dugmad
+
                         btnOption1.Text = odgovori[0];
                         btnOption2.Text = odgovori[1];
                         btnOption3.Text = odgovori[2];
                         btnOption4.Text = odgovori[3];
 
-                        // Čuvanje tačnog odgovora u ViewState
+
                         ViewState["TacanOdgovor"] = reader["Tnodgovor"].ToString();
                     }
                 }
