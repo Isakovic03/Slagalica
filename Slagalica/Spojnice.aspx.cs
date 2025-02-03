@@ -5,14 +5,21 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace Slagalica
 {
     public partial class Spojnice : System.Web.UI.Page
     {
+        private string levastrana;
+        private string desnastrana;
+        private List<string> tacan = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            Nasumicno();
+            if (!IsPostBack)
+            {
+                Nasumicno();
+            }
 
         }
         private static void Zamena<T>(List<T> lista)
@@ -64,6 +71,11 @@ namespace Slagalica
                                 reader["desna7"].ToString(),
                                 reader["desna8"].ToString()
                             };
+                            for (int i = 0; i < 8; i++)
+                            {
+                                tacan.Add(leva[i] + desna[i]);
+                            }
+                            ViewState["TacanLista"] = tacan;
                             Zamena(leva);
                             Zamena(desna);
                             btn1.Text = leva[0];
@@ -87,9 +99,31 @@ namespace Slagalica
                 }
             }
         }
-        protected void GameButtonClicked(object sender, EventArgs e)
+        
+        protected void GameButtonClicked1(object sender, EventArgs e)
         {
+            Button clickedButton = (Button)sender;
+            levastrana = clickedButton.Text;
+            ViewState["ls"]= levastrana;
             
         }
+        protected void GameButtonClicked2(object sender, EventArgs e)
+        {
+            Button clickedButton = (Button)sender;
+            desnastrana = clickedButton.Text;
+            ViewState["ds"] = desnastrana;
+            uporedi();
+        }
+        private void uporedi()
+        {
+            string lS = ViewState["ls"].ToString();
+            string dS = ViewState["ds"].ToString();
+            List<string> tacan = (List<string>)ViewState["TacanLista"];
+            if (lS + dS == tacan[0])
+            {
+                opis.Visible = false;
+            }
+        }
+        
     }
 }

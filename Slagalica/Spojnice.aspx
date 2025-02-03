@@ -79,40 +79,46 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
-            <!-- Naslov igre -->
-            <h1>SPOJNICE</h1>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
-            <!-- Kontejner za opis igre i dugmadi -->
-            <div class="game-container">
-                <!-- Opis igre -->
-                <div class="game-description">
-                    <asp:Label ID="opis" runat="server" Text="Opis igre" />
-                </div>
+<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+    <ContentTemplate>
+        <!-- Naslov igre -->
+        <h1>SPOJNICE</h1>
 
-                <!-- Dugmadi u 8x2 rasporedu -->
-                <div class="button-container">
-                    <!-- Dugmadi -->
-                    <asp:Button ID="btn1" runat="server" Text="1" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn2" runat="server" Text="2" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn3" runat="server" Text="3" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn4" runat="server" Text="4" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn5" runat="server" Text="5" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn6" runat="server" Text="6" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn7" runat="server" Text="7" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn8" runat="server" Text="8" CssClass="game-button" OnClick="GameButtonClicked" />
-                    
-                    <asp:Button ID="btn9" runat="server" Text="9" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn10" runat="server" Text="10" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn11" runat="server" Text="11" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn12" runat="server" Text="12" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn13" runat="server" Text="13" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn14" runat="server" Text="14" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn15" runat="server" Text="15" CssClass="game-button" OnClick="GameButtonClicked" />
-                    <asp:Button ID="btn16" runat="server" Text="16" CssClass="game-button" OnClick="GameButtonClicked" />
-                </div>
+        <!-- Kontejner za opis igre i dugmadi -->
+        <div class="game-container">
+            <!-- Opis igre -->
+            <div class="game-description">
+                <asp:Label ID="opis" runat="server" Text="Opis igre" />
+            </div>
+
+            <!-- Dugmadi u 8x2 rasporedu -->
+            <div class="button-container">
+                <!-- Dugmadi -->
+                <asp:Button ID="btn1" runat="server" Text="1" CssClass="game-button" OnClick="GameButtonClicked1" />
+                <asp:Button ID="btn2" runat="server" Text="2" CssClass="game-button" OnClick="GameButtonClicked2" />
+                <asp:Button ID="btn3" runat="server" Text="3" CssClass="game-button" OnClick="GameButtonClicked1" />
+                <asp:Button ID="btn4" runat="server" Text="4" CssClass="game-button" OnClick="GameButtonClicked2" />
+                <asp:Button ID="btn5" runat="server" Text="5" CssClass="game-button" OnClick="GameButtonClicked1" />
+                <asp:Button ID="btn6" runat="server" Text="6" CssClass="game-button" OnClick="GameButtonClicked2" />
+                <asp:Button ID="btn7" runat="server" Text="7" CssClass="game-button" OnClick="GameButtonClicked1" />
+                <asp:Button ID="btn8" runat="server" Text="8" CssClass="game-button" OnClick="GameButtonClicked2" />
+                
+                <asp:Button ID="btn9" runat="server" Text="9" CssClass="game-button" OnClick="GameButtonClicked1" />
+                <asp:Button ID="btn10" runat="server" Text="10" CssClass="game-button" OnClick="GameButtonClicked2" />
+                <asp:Button ID="btn11" runat="server" Text="11" CssClass="game-button" OnClick="GameButtonClicked1" />
+                <asp:Button ID="btn12" runat="server" Text="12" CssClass="game-button" OnClick="GameButtonClicked2" />
+                <asp:Button ID="btn13" runat="server" Text="13" CssClass="game-button" OnClick="GameButtonClicked1" />
+                <asp:Button ID="btn14" runat="server" Text="14" CssClass="game-button" OnClick="GameButtonClicked2" />
+                <asp:Button ID="btn15" runat="server" Text="15" CssClass="game-button" OnClick="GameButtonClicked1" />
+                <asp:Button ID="btn16" runat="server" Text="16" CssClass="game-button" OnClick="GameButtonClicked2" />
             </div>
         </div>
+    </ContentTemplate>
+</asp:UpdatePanel>
     </form>
 </body>
+
+
 </html>
