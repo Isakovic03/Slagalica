@@ -75,6 +75,79 @@
         .game-button:hover {
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
+        .correct-answer {
+    background: linear-gradient(145deg, #3CB371, #2E8B57); /* Lepe zelene nijanse */
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.correct-answer:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.not-correct-answer {
+    background: linear-gradient(145deg, #B22222, #8B0000); /* Crvene nijanse */
+    color: white !important;
+    font-weight: bold;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.not-correct-answer:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+.next-game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 25px;
+    width: 80%;
+    max-width: 700px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.lbl-ukupni-poeni {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #8B4513;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.next-game-button {
+    background: linear-gradient(145deg, #8B4513, #A0522D);
+    color: white;
+    text-decoration: none;
+    border-radius: 15px;
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+.next-game-button:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+
     </style>
 </head>
 <body>
@@ -87,7 +160,7 @@
         <h1>SPOJNICE</h1>
 
         <!-- Kontejner za opis igre i dugmadi -->
-        <div class="game-container">
+        <div class="game-container" runat="server" id="sp">
             <!-- Opis igre -->
             <div class="game-description">
                 <asp:Label ID="opis" runat="server" Text="Opis igre" />
@@ -115,10 +188,13 @@
                 <asp:Button ID="btn16" runat="server" Text="16" CssClass="game-button" OnClick="GameButtonClicked2" />
             </div>
         </div>
+        <div class="next-game-container" runat="server" visible="false" id="nextgame">
+    <asp:Label ID="lblUkupniPoeni" CssClass="lbl-ukupni-poeni" runat="server" Text="Ukupno poena: "></asp:Label>
+    <a href="Slagalica.aspx" class="next-game-button">Izaberite sledeću igru</a>
+</div>
     </ContentTemplate>
 </asp:UpdatePanel>
     </form>
 </body>
-
 
 </html>

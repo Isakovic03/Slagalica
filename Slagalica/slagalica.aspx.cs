@@ -11,15 +11,24 @@ namespace Slagalica
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["ubp"] == null)
+            if (Session["ubp2"] == null)
             {
-                Session["ubp"] = 0;
+                Session["ubp2"] = 0;
             }
-            lblKoZnaZna.Text = "Poeni: " + Session["ubp"].ToString();
+            lblSpojnice.Text = "Poeni: " + Session["ubp2"].ToString();
+            if (Session["ubp1"] == null)
+            {
+                Session["ubp1"] = 0;
+            }
+            lblKoZnaZna.Text = "Poeni: " + Session["ubp1"].ToString();
         }
         protected void btnkzz(object sender, EventArgs e)
         {
             Response.Redirect("KoZnaZna.aspx");
+        }
+        protected void btnsp(object sender, EventArgs e)
+        {
+            Response.Redirect("Spojnice.aspx");
         }
     }
 }

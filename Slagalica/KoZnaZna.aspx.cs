@@ -18,7 +18,7 @@ namespace Slagalica
                 UcitajNasumicnoPitanje();
                 ViewState["i"] = 0;
                 ViewState["brpt"] = 0;
-                Session["ubp"] = 0;
+                Session["ubp1"] = 0;
             }
         }
         private static void Shuffle<T>(List<T> lista)
@@ -102,7 +102,7 @@ namespace Slagalica
                 kzz2.Visible = false;
                 nextgame.Visible = true;
                 lblUkupniPoeni.Text = "Ukupan broj poena:" + ViewState["i"].ToString();
-                Session["ubp"]=ViewState["i"].ToString();
+                Session["ubp1"]=ViewState["i"].ToString();
             }
             UcitajNasumicnoPitanje(); // Učitava sledeće pitanje
         }
@@ -118,7 +118,7 @@ namespace Slagalica
                 kzz2.Visible = false;
                 nextgame.Visible = true;
                 lblUkupniPoeni.Text = "Ukupan broj poena:" + ViewState["i"].ToString();
-                Session["ubp"] = ViewState["i"].ToString();
+                Session["ubp1"] = ViewState["i"].ToString();
             }
             UcitajNasumicnoPitanje();
         }

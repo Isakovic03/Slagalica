@@ -13,18 +13,22 @@ namespace Slagalica
     {
         private string levastrana;
         private string desnastrana;
-        private List<string> tacan = new List<string>();
+        private string[] tacan;
+        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 Nasumicno();
+                ViewState["poeni"] = 0;
+                ViewState["br"] = 0;
+                Session["ubp2"] = 0;
             }
 
         }
-        private static void Zamena<T>(List<T> lista)
+        private static void Zamena<T>(List<T> lista, Random rng)
         {
-            Random rng = new Random();
             int n = lista.Count;
             while (n > 1)
             {
@@ -71,13 +75,19 @@ namespace Slagalica
                                 reader["desna7"].ToString(),
                                 reader["desna8"].ToString()
                             };
+
+                            tacan = new string[8];
                             for (int i = 0; i < 8; i++)
                             {
-                                tacan.Add(leva[i] + desna[i]);
+                                tacan[i] = leva[i] + desna[i];
+                                System.Diagnostics.Debug.WriteLine($"Tacan odgovor {i}: {tacan[i]}");
                             }
-                            ViewState["TacanLista"] = tacan;
-                            Zamena(leva);
-                            Zamena(desna);
+
+                            ViewState["tacniodg"] = tacan;
+
+                            Random rng = new Random();
+                            Zamena(leva, rng);
+                            Zamena(desna, rng);
                             btn1.Text = leva[0];
                             btn2.Text = desna[0];
                             btn3.Text = leva[1];
@@ -94,6 +104,7 @@ namespace Slagalica
                             btn14.Text = desna[6];
                             btn15.Text = leva[7];
                             btn16.Text = desna[7];
+
                         }
                     }
                 }
@@ -105,25 +116,60 @@ namespace Slagalica
             Button clickedButton = (Button)sender;
             levastrana = clickedButton.Text;
             ViewState["ls"]= levastrana;
-            
+            ViewState["levaBtn"] = clickedButton.ID;
+            ViewState["LeviKlik"] = 0;
         }
+
         protected void GameButtonClicked2(object sender, EventArgs e)
         {
+            int lk = (int)ViewState["LeviKlik"];
+            if (lk == 1)
+            {
+                return;
+            }
             Button clickedButton = (Button)sender;
             desnastrana = clickedButton.Text;
-            ViewState["ds"] = desnastrana;
-            uporedi();
-        }
-        private void uporedi()
-        {
+            Button levaBtn = (Button)FindControl(ViewState["levaBtn"].ToString());
+            int br = (int)ViewState["br"];
+            int poeni = (int)ViewState["poeni"];
             string lS = ViewState["ls"].ToString();
-            string dS = ViewState["ds"].ToString();
-            List<string> tacan = (List<string>)ViewState["TacanLista"];
-            if (lS + dS == tacan[0])
+            string[] to = (string[])ViewState["tacniodg"];
+            
+            for (int i = 0; i < to.Length; i++)
             {
-                opis.Visible = false;
+                
+                if (lS + desnastrana == to[i])
+                {
+
+                    poeni = poeni + 4;
+                    ViewState["poeni"] = poeni;
+                    clickedButton.CssClass = "correct-answer";
+                    levaBtn.CssClass = "correct-answer";
+                    levaBtn.Enabled = false;
+                    lk = 1;
+                    br++;
+                    break;
+                }
+                
             }
+            if(levaBtn.Enabled != false)
+            {
+                levaBtn.CssClass = "not-correct-answer";
+                levaBtn.Enabled = false;
+                lk = 1;
+                br++;
+            }
+            ViewState["br"] = br;
+            ViewState["LeviKlik"] = 1;
+            if(br == 8)
+            {
+                Session["ubp2"] = ViewState["poeni"].ToString();
+                lblUkupniPoeni.Text = "Ukupan broj poena: " + poeni;
+                sp.Visible = false;
+                nextgame.Visible = true;
+            }
+            
         }
-        
+
     }
 }

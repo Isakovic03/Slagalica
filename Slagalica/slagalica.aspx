@@ -100,6 +100,7 @@
                 padding: 10px 25px;
             }
         }
+
     </style>
 </head>
 <body>
@@ -115,7 +116,7 @@
                 <asp:Label ID="lblMojBroj" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
             </div>
             <div class="button-wrapper">
-                <asp:Button ID="btnSpojnice" runat="server" CssClass="button-style" Text="Spojnice"/>
+                <asp:Button ID="btnSpojnice" runat="server" CssClass="button-style" Text="Spojnice" OnClick="btnsp"/>
                 <asp:Label ID="lblSpojnice" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
             </div>
             <div class="button-wrapper">
