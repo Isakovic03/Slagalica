@@ -67,12 +67,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Asocijacije.aspx" />
     <Content Include="Spojnice.aspx" />
     <Content Include="KoZnaZna.aspx" />
     <Content Include="slagalica.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Asocijacije.aspx.cs">
+      <DependentUpon>Asocijacije.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Asocijacije.aspx.designer.cs">
+      <DependentUpon>Asocijacije.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Spojnice.aspx.cs">
       <DependentUpon>Spojnice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
