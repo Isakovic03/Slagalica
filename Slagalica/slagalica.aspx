@@ -120,7 +120,7 @@
                 <asp:Label ID="lblSpojnice" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
             </div>
             <div class="button-wrapper">
-                <asp:Button ID="btnSkocko" runat="server" CssClass="button-style" Text="Skocko"/>
+                <asp:Button ID="btnSkocko" runat="server" CssClass="button-style" Text="Skocko" OnClick="btnsk"/>
                 <asp:Label ID="lblSkocko" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
             </div>
             <div class="button-wrapper">
@@ -128,7 +128,7 @@
                 <asp:Label ID="lblKoZnaZna" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
             </div>
             <div class="button-wrapper">
-                <asp:Button ID="btnAsocijacije" runat="server" CssClass="button-style" Text="Asocijacije"/>
+                <asp:Button ID="btnAsocijacije" runat="server" CssClass="button-style" Text="Asocijacije" OnClick="btnasc"/>
                 <asp:Label ID="lblAsocijacije" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
             </div>
         </div>

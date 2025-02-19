@@ -137,6 +137,24 @@
     border-color: #388E3C; /* Tamnija zelena kada je tekst kutija u fokusu */
     background-color: #c8e6c9; /* Zelenkasta pozadina u fokusu */
 }
+/* Stilizovanje za crvene tekst kutije */
+.red-text-box {
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    border: 1px solid #F44336; /* Crvena boja ivice */
+    text-align: center;
+    font-weight: bold;
+    width: 90%; /* Uvećaj širinu da bude uži unutar svake kolone */
+    margin: 0 auto; /* Centriraj tekstboks u okviru kolone */
+    background-color: #FFEBEE; /* Svetlo crvena pozadina */
+}
+
+.red-text-box:focus {
+    border-color: #D32F2F; /* Tamnija crvena kada je tekst kutija u fokusu */
+    background-color: #FFCDD2; /* Svetlija crvena pozadina u fokusu */
+}
+
 .next-game-container {
     display: flex;
     flex-direction: column;
@@ -209,12 +227,12 @@
 
                         <asp:Button ID="btn9" runat="server" Text="a3" CssClass="game-button" OnClick="Klik" CommandArgument="2"/>
                         <asp:Button ID="btn10" runat="server" Text="b3" CssClass="game-button" OnClick="Klik" CommandArgument="6"/>
-                        <asp:Button ID="btn11" runat="server" Text="c3" CssClass="game-button" OnClick="Klik" CommandArgument="9"/>
+                        <asp:Button ID="btn11" runat="server" Text="c3" CssClass="game-button" OnClick="Klik" CommandArgument="10"/>
                         <asp:Button ID="btn12" runat="server" Text="d3" CssClass="game-button" OnClick="Klik" CommandArgument="14"/>
 
                         <asp:Button ID="btn13" runat="server" Text="a4" CssClass="game-button" OnClick="Klik" CommandArgument="3"/>
                         <asp:Button ID="btn14" runat="server" Text="b4" CssClass="game-button" OnClick="Klik" CommandArgument="7"/>
-                        <asp:Button ID="btn15" runat="server" Text="c4" CssClass="game-button" OnClick="Klik" CommandArgument="10"/>
+                        <asp:Button ID="btn15" runat="server" Text="c4" CssClass="game-button" OnClick="Klik" CommandArgument="11"/>
                         <asp:Button ID="btn16" runat="server" Text="d4" CssClass="game-button" OnClick="Klik" CommandArgument="15"/>
                     </div>
 

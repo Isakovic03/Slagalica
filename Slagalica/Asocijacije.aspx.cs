@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -19,6 +20,7 @@ namespace Slagalica
         string konacno="";
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["ubp3"] = 0;
             txtKonacno.Enabled = false;
             Nasumicno();
         }
@@ -116,6 +118,11 @@ namespace Slagalica
                 txt1.Enabled = false;
                 txtKonacno.Enabled = true;
             }
+            if (txt1.Text.ToLower() != kolone[0].ToLower() && !string.IsNullOrEmpty(txt1.Text))
+            {
+                txt1.CssClass = "red-text-box";
+                txt1.Text = "";
+            }
             if (txt2.Text.ToLower() == kolone[1].ToLower())
             {
                 poeni = poeni - 4;
@@ -131,6 +138,11 @@ namespace Slagalica
                 txt2.CssClass = "green-text-box";
                 txt2.Enabled = false;
                 txtKonacno.Enabled = true;
+            }
+            if (txt2.Text.ToLower() != kolone[1].ToLower() && !string.IsNullOrEmpty(txt2.Text))
+            {
+                txt2.CssClass = "red-text-box";
+                txt2.Text = "";
             }
             if (txt3.Text.ToLower() == kolone[2].ToLower())
             {
@@ -148,6 +160,11 @@ namespace Slagalica
                 txt3.Enabled = false;
                 txtKonacno.Enabled = true;
             }
+            if (txt3.Text.ToLower() != kolone[2].ToLower() && !string.IsNullOrEmpty(txt3.Text))
+            {
+                txt3.CssClass = "red-text-box";
+                txt3.Text = "";
+            }
             if (txt4.Text.ToLower() == kolone[3].ToLower())
             {
                 poeni = poeni - 4;
@@ -164,12 +181,24 @@ namespace Slagalica
                 txt4.Enabled = false;
                 txtKonacno.Enabled = true;
             }
+            if (txt4.Text.ToLower() != kolone[3].ToLower() && !string.IsNullOrEmpty(txt4.Text))
+            {
+                txt4.CssClass = "red-text-box";
+                txt4.Text = "";
+            }
             if (txtKonacno.Text.ToLower() == konacno.ToLower())
             {
+                Session["ubp3"] = poeni;
                 asocijacije.Visible = false;
-                lblUkupniPoeni.Text = "Ukupan broj peona: "poeni.ToString();
+                lblUkupniPoeni.Text = "Ukupan broj peona: "+poeni.ToString();
                 nextgame.Visible = true;
             }
+            if (txtKonacno.Text.ToLower() != konacno.ToLower() && !string.IsNullOrEmpty(txtKonacno.Text))
+            {
+                txtKonacno.CssClass = "red-text-button";
+                txtKonacno.Text = "";
+            }
+
         }
     }
 }

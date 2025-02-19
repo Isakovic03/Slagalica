@@ -11,18 +11,49 @@ namespace Slagalica
 {
     public partial class Spojnice : System.Web.UI.Page
     {
-        private string levastrana;
-        private string desnastrana;
-        private string[] tacan;
-        
+        private int Poeni
+        {
+            get { return ViewState["poeni"] != null ? (int)ViewState["poeni"] : 0; }
+            set { ViewState["poeni"] = value; }
+        }
+
+        private int BrojPogodaka
+        {
+            get { return ViewState["br"] != null ? (int)ViewState["br"] : 0; }
+            set { ViewState["br"] = value; }
+        }
+
+        private string LevaStrana
+        {
+            get { return ViewState["ls"] as string ?? ""; }
+            set { ViewState["ls"] = value; }
+        }
+
+        private string LevaDugmadID
+        {
+            get { return ViewState["levaBtn"] as string ?? ""; }
+            set { ViewState["levaBtn"] = value; }
+        }
+
+        private int LeviKlik
+        {
+            get { return ViewState["LeviKlik"] != null ? (int)ViewState["LeviKlik"] : 0; }
+            set { ViewState["LeviKlik"] = value; }
+        }
+
+        private string[] TacniOdgovori
+        {
+            get { return (string[])ViewState["tacniodg"] ?? new string[8]; }
+            set { ViewState["tacniodg"] = value; }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 Nasumicno();
-                ViewState["poeni"] = 0;
-                ViewState["br"] = 0;
+                Poeni = 0;
+                BrojPogodaka = 0;
                 Session["ubp2"] = 0;
             }
 
@@ -75,15 +106,8 @@ namespace Slagalica
                                 reader["desna7"].ToString(),
                                 reader["desna8"].ToString()
                             };
+                            TacniOdgovori = leva.Zip(desna, (l, d) => l + d).ToArray();
 
-                            tacan = new string[8];
-                            for (int i = 0; i < 8; i++)
-                            {
-                                tacan[i] = leva[i] + desna[i];
-                                System.Diagnostics.Debug.WriteLine($"Tacan odgovor {i}: {tacan[i]}");
-                            }
-
-                            ViewState["tacniodg"] = tacan;
 
                             Random rng = new Random();
                             Zamena(leva, rng);
@@ -114,40 +138,33 @@ namespace Slagalica
         protected void GameButtonClicked1(object sender, EventArgs e)
         {
             Button clickedButton = (Button)sender;
-            levastrana = clickedButton.Text;
-            ViewState["ls"]= levastrana;
-            ViewState["levaBtn"] = clickedButton.ID;
-            ViewState["LeviKlik"] = 0;
+            LevaStrana= clickedButton.Text;
+            LevaDugmadID = clickedButton.ID;
+            LeviKlik = 0;
         }
 
         protected void GameButtonClicked2(object sender, EventArgs e)
         {
-            int lk = (int)ViewState["LeviKlik"];
-            if (lk == 1)
+            if (LeviKlik == 1)
             {
                 return;
             }
             Button clickedButton = (Button)sender;
-            desnastrana = clickedButton.Text;
-            Button levaBtn = (Button)FindControl(ViewState["levaBtn"].ToString());
-            int br = (int)ViewState["br"];
-            int poeni = (int)ViewState["poeni"];
-            string lS = ViewState["ls"].ToString();
-            string[] to = (string[])ViewState["tacniodg"];
+            string desnastrana = clickedButton.Text;
+            Button levaBtn = (Button)FindControl(LevaDugmadID);
             
-            for (int i = 0; i < to.Length; i++)
+            for (int i = 0; i < TacniOdgovori.Length; i++)
             {
                 
-                if (lS + desnastrana == to[i])
+                if (LevaStrana + desnastrana == TacniOdgovori[i])
                 {
 
-                    poeni = poeni + 4;
-                    ViewState["poeni"] = poeni;
+                    Poeni = Poeni + 4;
                     clickedButton.CssClass = "correct-answer";
                     levaBtn.CssClass = "correct-answer";
                     levaBtn.Enabled = false;
-                    lk = 1;
-                    br++;
+                    LeviKlik = 1;
+                    BrojPogodaka++;
                     break;
                 }
                 
@@ -156,15 +173,13 @@ namespace Slagalica
             {
                 levaBtn.CssClass = "not-correct-answer";
                 levaBtn.Enabled = false;
-                lk = 1;
-                br++;
+                LeviKlik = 1;
+                BrojPogodaka++;
             }
-            ViewState["br"] = br;
-            ViewState["LeviKlik"] = 1;
-            if(br == 8)
+            if(BrojPogodaka == 8)
             {
-                Session["ubp2"] = ViewState["poeni"].ToString();
-                lblUkupniPoeni.Text = "Ukupan broj poena: " + poeni;
+                Session["ubp2"] = Poeni.ToString();
+                lblUkupniPoeni.Text = "Ukupan broj poena: " + Poeni;
                 sp.Visible = false;
                 nextgame.Visible = true;
             }

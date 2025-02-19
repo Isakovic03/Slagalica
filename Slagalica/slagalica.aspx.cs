@@ -21,6 +21,16 @@ namespace Slagalica
                 Session["ubp1"] = 0;
             }
             lblKoZnaZna.Text = "Poeni: " + Session["ubp1"].ToString();
+            if (Session["ubp3"] == null)
+            {
+                Session["ubp3"] = 0;
+            }
+            lblAsocijacije.Text = "Poeni: " + Session["ubp3"].ToString();
+            if (Session["ubp4"] == null)
+            {
+                Session["ubp4"] = 0;
+            }
+            lblSkocko.Text = "Poeni: " + Session["ubp4"].ToString();
         }
         protected void btnkzz(object sender, EventArgs e)
         {
@@ -29,6 +39,14 @@ namespace Slagalica
         protected void btnsp(object sender, EventArgs e)
         {
             Response.Redirect("Spojnice.aspx");
+        }
+        protected void btnasc(object sender, EventArgs e)
+        {
+            Response.Redirect("Asocijacije.aspx");
+        }
+        protected void btnsk(object sender, EventArgs e)
+        {
+            Response.Redirect("Skocko.aspx");
         }
     }
 }
