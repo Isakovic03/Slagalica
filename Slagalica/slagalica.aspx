@@ -112,7 +112,7 @@
                 <asp:Label ID="lblSlagalica" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
             </div>
             <div class="button-wrapper">
-                <asp:Button ID="btnMojBroj" runat="server" CssClass="button-style" Text="Moj broj"/>
+                <asp:Button ID="btnMojBroj" runat="server" CssClass="button-style" Text="Moj broj" OnClick="btnmb"/>
                 <asp:Label ID="lblMojBroj" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
             </div>
             <div class="button-wrapper">

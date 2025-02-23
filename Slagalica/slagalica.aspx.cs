@@ -31,6 +31,11 @@ namespace Slagalica
                 Session["ubp4"] = 0;
             }
             lblSkocko.Text = "Poeni: " + Session["ubp4"].ToString();
+            if (Session["ubp5"] == null)
+            {
+                Session["ubp5"] = 0;
+            }
+            lblMojBroj.Text = "Poeni: " + Session["ubp5"].ToString();
         }
         protected void btnkzz(object sender, EventArgs e)
         {
@@ -47,6 +52,10 @@ namespace Slagalica
         protected void btnsk(object sender, EventArgs e)
         {
             Response.Redirect("Skocko.aspx");
+        }
+        protected void btnmb(object sender, EventArgs e)
+        {
+            Response.Redirect("MojBroj.aspx");
         }
     }
 }

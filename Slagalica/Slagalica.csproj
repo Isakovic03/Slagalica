@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Asocijacije.aspx" />
+    <Content Include="MojBroj.aspx" />
     <Content Include="Skocko.aspx" />
     <Content Include="Spojnice.aspx" />
     <Content Include="KoZnaZna.aspx" />
@@ -81,6 +82,13 @@
     </Compile>
     <Compile Include="Asocijacije.aspx.designer.cs">
       <DependentUpon>Asocijacije.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MojBroj.aspx.cs">
+      <DependentUpon>MojBroj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MojBroj.aspx.designer.cs">
+      <DependentUpon>MojBroj.aspx</DependentUpon>
     </Compile>
     <Compile Include="Skocko.aspx.cs">
       <DependentUpon>Skocko.aspx</DependentUpon>

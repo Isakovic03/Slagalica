@@ -195,7 +195,7 @@ namespace Slagalica
             }
             if (txtKonacno.Text.ToLower() != konacno.ToLower() && !string.IsNullOrEmpty(txtKonacno.Text))
             {
-                txtKonacno.CssClass = "red-text-button";
+                txtKonacno.CssClass = "red-text-box";
                 txtKonacno.Text = "";
             }
 
