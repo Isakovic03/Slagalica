@@ -163,9 +163,9 @@
             <div class="game-container" runat="server" id="Kont">
                 <!-- Prvi red: 3 dugmeta centrirana + 2 desno -->
                 <div class="button-row">
-                    <asp:Button ID="btn1" runat="server" Text="" CssClass="game-btn" enebled="false"/>
-                    <asp:Button ID="btn2" runat="server" Text="" CssClass="game-btn" enebled="false"/>
-                    <asp:Button ID="btn3" runat="server" Text="" CssClass="game-btn" enebled="false"/>
+                    <asp:Button ID="btn1" runat="server" Text="" CssClass="game-btn" />
+                    <asp:Button ID="btn2" runat="server" Text="" CssClass="game-btn" />
+                    <asp:Button ID="btn3" runat="server" Text="" CssClass="game-btn" />
                     <div class="spacer"></div>
                     <asp:Button ID="btnz1" runat="server" Text="+" CssClass="game-btn" onclick="znak"/>
                     <asp:Button ID="btnz2" runat="server" Text="-" CssClass="game-btn" onclick="znak"/>

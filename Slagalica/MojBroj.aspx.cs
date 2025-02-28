@@ -47,13 +47,9 @@ namespace Slagalica
             get => (int)(ViewState["brbtn"] ?? 1);
             set => ViewState["brbtn"] = value;
         }
-        private Button btn
+        private Button GetButton(int index)
         {
-            get => (Button)UpdatePanel1.FindControl("btn"+BrBtn);
-        }
-        private Button btnn
-        {
-            get => (Button)UpdatePanel1.FindControl("btn"+BrBB);
+            return (Button)UpdatePanel1.FindControl("btn" + index);
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -67,7 +63,7 @@ namespace Slagalica
         protected void Stop(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            btn.ID = "btn" + BrBtn;
+            Button btn = GetButton(BrBtn);
             if (BrBtn < 4)
             {
                 btn.Text = rnd.Next(0, 10).ToString();
@@ -170,9 +166,9 @@ namespace Slagalica
                             if (IzabanButton[BrIB - 1] == BrojButton[i])
                             {
                                 BrBB = BrBB + i;
-                                btnn.ID = "btn" + BrBB;
-                                btnn.Enabled = true;
-                                btnn.CssClass = btnn.CssClass.Replace("game-btn-gray", "game-btn");
+                                Button btn = GetButton(BrBB);
+                                btn.Enabled = true;
+                                btn.CssClass = btn.CssClass.Replace("game-btn-gray", "game-btn");
                                 BrIB--;
                                 BrBB = 4;
                                 txtInput.Text = txtInput.Text.Remove(txtInput.Text.Length - 1);
@@ -189,9 +185,9 @@ namespace Slagalica
                             if (IzabanButton[BrIB - 1] == BrojButton[i])
                             {
                                 BrBB = BrBB + i;
-                                btnn.ID = "btn" + BrBB;
-                                btnn.Enabled = true;
-                                btnn.CssClass = btnn.CssClass.Replace("game-btn-gray", "game-btn");
+                                Button btn = GetButton(BrBB);
+                                btn.Enabled = true;
+                                btn.CssClass = btn.CssClass.Replace("game-btn-gray", "game-btn");
                                 BrIB--;
                                 BrBB = 4;
                                 txtInput.Text = txtInput.Text.Remove(txtInput.Text.Length - 1);
@@ -209,9 +205,9 @@ namespace Slagalica
                         if (IzabanButton[BrIB - 1] == BrojButton[i])
                         {
                             BrBB = BrBB + i;
-                            btnn.ID = "btn" + BrBB;
-                            btnn.Enabled = true;
-                            btnn.CssClass = btnn.CssClass.Replace("game-btn-gray", "game-btn");
+                            Button btn = GetButton(BrBB);
+                            btn.Enabled = true;
+                            btn.CssClass = btn.CssClass.Replace("game-btn-gray", "game-btn");
                             BrIB--;
                             BrBB = 4;
                             break;

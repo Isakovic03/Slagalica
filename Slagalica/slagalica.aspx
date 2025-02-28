@@ -108,7 +108,7 @@
     <form runat="server">
         <div class="container">
             <div class="button-wrapper">
-                <asp:Button ID="btnSlagalica" runat="server" CssClass="button-style" Text="Slagalica"/>
+                <asp:Button ID="btnSlagalica" runat="server" CssClass="button-style" Text="Najduza Rec" OnClick="btnnr"/>
                 <asp:Label ID="lblSlagalica" runat="server" CssClass="score" Text="Poeni: 0"></asp:Label>
             </div>
             <div class="button-wrapper">

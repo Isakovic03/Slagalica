@@ -68,7 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Asocijacije.aspx" />
+    <Content Include="BazaSrpskihReci\serbian-words-latin.txt" />
     <Content Include="MojBroj.aspx" />
+    <Content Include="NajduzaRec.aspx" />
     <Content Include="Skocko.aspx" />
     <Content Include="Spojnice.aspx" />
     <Content Include="KoZnaZna.aspx" />
@@ -89,6 +91,13 @@
     </Compile>
     <Compile Include="MojBroj.aspx.designer.cs">
       <DependentUpon>MojBroj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NajduzaRec.aspx.cs">
+      <DependentUpon>NajduzaRec.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NajduzaRec.aspx.designer.cs">
+      <DependentUpon>NajduzaRec.aspx</DependentUpon>
     </Compile>
     <Compile Include="Skocko.aspx.cs">
       <DependentUpon>Skocko.aspx</DependentUpon>
@@ -129,6 +138,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
